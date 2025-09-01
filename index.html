@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <script defer src="./main.js"></script>
+    <title>HDR</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>HDR Image Blender</h1>
+            <p>Combine underexposed, balanced, and overexposed images into stunning HDR photography</p>
+        </div>
+
+        <div class="upload-section">
+            <div class="upload-card">
+                <h3>Underexposed Image</h3>
+                <input type="file" id="underexposed" class="file-input" accept="image/*">
+                <label for="underexposed" class="file-label">Choose Image</label>
+                <div class="preview-container" id="preview-under"></div>
+            </div>
+
+            <div class="upload-card">
+                <h3>Balanced Exposure</h3>
+                <input type="file" id="balanced" class="file-input" accept="image/*">
+                <label for="balanced" class="file-label">Choose Image</label>
+                <div class="preview-container" id="preview-balanced"></div>
+            </div>
+
+            <div class="upload-card">
+                <h3>Overexposed Image</h3>
+                <input type="file" id="overexposed" class="file-input" accept="image/*">
+                <label for="overexposed" class="file-label">Choose Image</label>
+                <div class="preview-container" id="preview-over"></div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <h3>Blending Controls</h3>
+            <div class="slider-group">
+                <label for="underWeight">Underexposed Weight: <span id="underValue">0.3</span></label>
+                <input type="range" id="underWeight" class="slider" min="0" max="1" step="0.1" value="0.3">
+            </div>
+            <div class="slider-group">
+                <label for="balancedWeight">Balanced Weight: <span id="balancedValue">0.4</span></label>
+                <input type="range" id="balancedWeight" class="slider" min="0" max="1" step="0.1" value="0.4">
+            </div>
+            <div class="slider-group">
+                <label for="overWeight">Overexposed Weight: <span id="overValue">0.3</span></label>
+                <input type="range" id="overWeight" class="slider" min="0" max="1" step="0.1" value="0.3">
+            </div>
+            <div class="slider-group">
+                <label for="gamma">Gamma Correction: <span id="gammaValue">1.0</span></label>
+                <input type="range" id="gamma" class="slider" min="0.5" max="2.0" step="0.1" value="1.0">
+            </div>
+            <div class="slider-group">
+                <label for="contrast">Contrast: <span id="contrastValue">1.0</span></label>
+                <input type="range" id="contrast" class="slider" min="0.5" max="2.0" step="0.1" value="1.0">
+            </div>
+            <div class="slider-group">
+                <label for="saturation">Saturation: <span id="saturationValue">1.0</span></label>
+                <input type="range" id="saturation" class="slider" min="0.5" max="2.0" step="0.1" value="1.0">
+            </div>
+        </div>
+
+        <button id="blendButton" class="blend-button" disabled>Create HDR Image</button>
+
+        <div class="status" id="status"></div>
+
+        <div class="result-section">
+            <canvas id="resultCanvas" class="result-canvas" style="display: none;"></canvas>
+            <br>
+            <button id="downloadButton" class="download-button" style="display: none;">Download HDR Image</button>
+        </div>
+    </div>
+
+</body>
+
+</html>
